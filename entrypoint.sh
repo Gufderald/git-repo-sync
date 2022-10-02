@@ -9,7 +9,12 @@ case "${GITHUB_EVENT_NAME}" in
     delete)
         git push -d target ${GITHUB_EVENT_REF}
         ;;
+    workflow_dispatch)
+        git push -f --all target
+        git push -f --tags target
+        ;;
     *)
-        break
+        echo "Action type mismatch"
+        exit 1
         ;;
 esac
