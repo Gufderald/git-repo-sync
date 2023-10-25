@@ -18,4 +18,4 @@ case "${GITHUB_EVENT_NAME}" in
         exit 1
         ;;
 esac
-git remote rm target
+git remote remove target
